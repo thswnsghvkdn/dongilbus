@@ -25,14 +25,15 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 //app.get('/', (req, res) => res.send('hello'));
-// let obj = { lat: 0, lng: 0 }
-
-// app.get('/api/gps', function (req, res) {
-//     console.log("post gps : ", req.query.lng)
-//     obj.lat = req.query.lat;
-//     obj.lng = req.query.lng;
-//     res.send(obj)
-// })
+let obj = { lat: 36.769437094432845, lng: 126.93183543885787 }
+app.get('/api/gps', function (req, res) {
+    //console.log("post gps : ", req.query.lng)
+    if (req.query.lat >= 36 && req.query.lng >= 126) {
+        obj.lat = req.query.lat;
+        obj.lng = req.query.lng;
+    }
+    res.send(obj)
+})
 
 if (process.env.NODE_ENV === 'production') {
     //  정적 파일을 가져 올수 있도록 경로를 설정 하는 미들웨어
