@@ -5,7 +5,6 @@ const { MapApiKey } = require('./config/key');
 
 const App = () => {
   useEffect(() => {
-    debugger
     const script = document.createElement("script");
     script.async = true;
     script.src =
