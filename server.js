@@ -7,7 +7,7 @@ const app = express()
 
 // 코스 설정 
 // 화이트 리스트 설정 로컬의 클라이언트 , 백엔드와 헤로쿠 url을 등록해놓는다.
-const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://dongilbusgps.herokuapp.com']
+const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://dongilbus.herokuapp.com']
 const corsOptions = {
     origin: function (origin, callback) {
         // 요청한 url을 표시한다
