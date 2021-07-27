@@ -2,7 +2,7 @@
 import './App.css';
 import Axios from 'axios'
 import React, { useEffect } from 'react'
-const apiUrl = "https://dongilbusgps.herokuapp.com/api/gps"
+const apiUrl = "https://dongilbus.herokuapp.com/api/gps"
 const { MapApiKey } = require('./config/key');
 
 const App = () => {
