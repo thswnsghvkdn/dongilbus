@@ -1,11 +1,31 @@
 /*global kakao*/
 import './App.css';
+import Axios from 'axios'
 import React, { useEffect } from 'react'
+const apiUrl = "https://dongilbusgps.herokuapp.com/api/gps"
 const { MapApiKey } = require('./config/key');
 
 const App = () => {
+  function delayPost() {
+    Axios.get(apiUrl).then(response => {
+      kakao.maps.load(() => {
+        var container = document.getElementById('map');
+        var options = {
+          center: new kakao.maps.LatLng(response.data.lat, response.data.lng),
+          level: 3
+        };
+        var map = new kakao.maps.Map(container, options);
+        var markerPosition = new kakao.maps.LatLng(response.data.lat, response.data.lng);
+        var marker = new kakao.maps.Marker({
+          position: markerPosition
+        });
+        marker.setMap(map);
+        console.log(response.data)
+        setTimeout(() => delayPost(), 5000);
+      })
+    })
+  }
   useEffect(() => {
-    debugger
     const script = document.createElement("script");
     script.async = true;
     script.src =
@@ -21,6 +41,7 @@ const App = () => {
         };
         new window.kakao.maps.Map(mapContainer, mapOption);
       });
+      delayPost();
     };
     script.addEventListener("load", onLoadKakaoMap);
 
