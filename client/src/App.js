@@ -48,7 +48,12 @@ const App = () => {
   }, [])
   return (
     <div>
-      <div id="map" style={{ width: "500px", height: "400px" }}></div>
+      <div style={{ width: '100%', height: "70px", borderBottom: "3px", borderColor: "black" }}>
+        <img src="http://jesuscountry.net/images/common/logo.jpg" />
+      </div>
+      <div style={{ transform: "translate(15% , 5%)" }}>
+        <div id="map" style={{ width: "800px", height: "800px" }}></div>
+      </div>
     </div>
   )
 }
